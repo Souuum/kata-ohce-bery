@@ -1,27 +1,27 @@
 export class SystemClock {
   currentHour() {
-    const date = new Date()
-    return date.getHours()
+    const date = new Date();
+    return date.getHours();
   }
 }
 
 export default class Greeter {
-  clock: SystemClock
+  clock: SystemClock;
 
-  constructor() {
-    this.clock = new SystemClock()
+  constructor(clock?: SystemClock) {
+    this.clock = clock ?? new SystemClock();
   }
-
+ 
   greet() {
-    const currentHour = this.clock.currentHour()
+    const currentHour = this.clock.currentHour();
     if (currentHour >= 6 && currentHour < 12) {
-      return 'Good morning'
+      return 'Good morning';
     }
     if (currentHour >= 12 && currentHour <= 19) {
-      return 'Good afternoon'
+      return 'Good afternoon';
     }
     if (currentHour >= 20 || currentHour < 6) {
-      return 'Good night'
+      return 'Good night';
     }
   }
 }
